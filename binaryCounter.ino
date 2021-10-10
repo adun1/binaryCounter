@@ -16,35 +16,8 @@ void setup() {
   pinMode(WHITE, OUTPUT);
 }
 
-void binaryCount(){
-  for(int i = 0; i < 2; i++)
-  {
-    for(int j = 0; j < 2; j++)
-    {
-      for(int k = 0; k < 2; k++)
-      {
-        if(k % 2 == 0)
-          digitalWrite(GREEN, LOW);
-        else
-          digitalWrite(GREEN, HIGH);
-        delay(GAP);
-      }
-      if(j %2 == 0)
-        digitalWrite(YELLOW, LOW);
-      else
-        digitalWrite(YELLOW, HIGH);
-      delay(GAP);
-    }
-    if(i % 2 == 0)
-      digitalWrite(RED, LOW);
-    else
-      digitalWrite(RED, HIGH);
-    delay(GAP);
-  }
-}
-
 //idea turn it into recursive
-void simpleBinary()
+void binaryCount()
 {
   for(int i = 0; i < 2; i++)
   {
@@ -55,7 +28,6 @@ void simpleBinary()
       for(int k = 0; k < 2; k++)
       {
         (k % 2 == 0) ? digitalWrite(GREEN, LOW) : digitalWrite(GREEN, HIGH);
-        
         for(int c = 0; c < 2; c++)
         {
           (c % 2 == 0) ? digitalWrite(BLUE, LOW) : digitalWrite(BLUE, HIGH);
@@ -90,26 +62,7 @@ void turnOffAll()
 }
 void loop() {
   // put your main code here, to run repeatedly:
-
-  /*
-  
-  */
-  /*
-  //binaryCount();
-  turnOnAll();
+  binaryCount();
+  turnOffAll();
   delay(END);
-  simpleBinary();
-  delay(END);
-  turnOffAll();
-  delay(GAP);
-  turnOnAll();
-  delay(GAP);
-  turnOffAll();
-  delay(GAP);
-  */
-  turnOffAll();
-
-  
-  
-
 }
