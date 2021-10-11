@@ -3,6 +3,7 @@
 #define YELLOW 10
 #define YELLOW2 3
 #define GREEN 9
+#define GREEN2 2
 #define BLUE 6
 #define WHITE 5
 #define RED_DELAY 500  
@@ -18,9 +19,12 @@ void setup() {
   pinMode(WHITE, OUTPUT);
   pinMode(RED2, OUTPUT);
   pinMode(YELLOW2, OUTPUT);
+  pinMode(GREEN2, OUTPUT);
 }
 
 //idea turn it into recursive
+// the inner most loop represents the least significant digit
+// which will change on every iteration
 void binaryCount()
 {
   for(int i = 0; i < 2; i++)
@@ -44,42 +48,22 @@ void binaryCount()
               for(int f = 0; f < 2; f++)
               {
                 (f % 2 == 0) ? digitalWrite(YELLOW2, LOW) : digitalWrite(YELLOW2, HIGH);
-                delay(GAP);
-                
+                for(int g = 0; g < 2; g++)
+                {
+                  (g % 2 == 0) ? digitalWrite(GREEN2, LOW) : digitalWrite(GREEN2, HIGH);
+                  delay(GAP);
+                }
               }
-              
-              
-              
             }
-            
           }
         }
       }
-      
     }
   }
 }
 
-void turnOnAll()
-{
-  digitalWrite(RED, HIGH);
-  digitalWrite(YELLOW, HIGH);
-  digitalWrite(GREEN, HIGH);
-  digitalWrite(BLUE, HIGH);
-  digitalWrite(WHITE, HIGH);
-}
-
-void turnOffAll()
-{
-  digitalWrite(RED, LOW);
-  digitalWrite(YELLOW, LOW);
-  digitalWrite(GREEN, LOW);
-  digitalWrite(BLUE, LOW);
-  digitalWrite(WHITE, LOW);
-}
 void loop() {
   // put your main code here, to run repeatedly:
   binaryCount();
-  turnOffAll();
   delay(END);
 }
