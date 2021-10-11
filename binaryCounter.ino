@@ -1,4 +1,5 @@
 #define RED 11
+#define RED2 4
 #define YELLOW 10
 #define GREEN 9
 #define BLUE 6
@@ -14,6 +15,7 @@ void setup() {
   pinMode(GREEN, OUTPUT);
   pinMode(BLUE, OUTPUT);
   pinMode(WHITE, OUTPUT);
+  pinMode(RED2, OUTPUT);
 }
 
 //idea turn it into recursive
@@ -34,7 +36,13 @@ void binaryCount()
           for(int d = 0; d < 2; d++)
           {
             (d % 2 == 0) ? digitalWrite(WHITE, LOW) : digitalWrite(WHITE, HIGH);
-            delay(GAP);
+            for(int e = 0; e < 2; e++)
+            {
+              (e % 2 == 0) ? digitalWrite(RED2, LOW) : digitalWrite(RED2, HIGH);
+              delay(GAP);
+              
+            }
+            
           }
         }
       }
